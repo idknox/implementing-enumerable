@@ -14,7 +14,7 @@ module GschoolEnumerable
 
   def g_reject
     output = []
-    self.g_each { |i| output << i if !yield(i) }
+    self.g_each { |i| output << i unless yield(i) }
     output
   end
 
@@ -30,7 +30,7 @@ module GschoolEnumerable
   end
 
   def g_select!
-    self.g_each { |i| self.delete(i) if !yield(i) }
+    self.g_each { |i| self.delete(i) unless yield(i) }
     self
   end
 end
